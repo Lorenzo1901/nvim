@@ -47,7 +47,7 @@ vim.api.nvim_set_keymap('v', '<M-b>', "c\\textbf{<C-r>\"}", { noremap = true, si
 vim.api.nvim_set_keymap('v', '<M-i>', "c\\textit{<C-r>\"}", { noremap = true, silent = true })
 
 -- LaTeX compilation
-vim.api.nvim_set_keymap('n', '<C-o>', ':VimtexCompile<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-o>', ':w<CR>:VimtexCompile<CR>', { noremap = true, silent = true })
 
 -- Manim execution
 vim.keymap.set("n", "<S-F5>", function()
