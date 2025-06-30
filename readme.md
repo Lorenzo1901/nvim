@@ -1,22 +1,22 @@
-\# Neovim Configuration Guide for Windows
+# Neovim Configuration Guide for Windows
 
 
 
-\## Table of Contents
+## Table of Contents
 
-1\. \[Overview](#overview)
+1. [Overview](#overview)
 
-2\. \[General Settings](#general-settings)
+2. [General Settings](#general-settings)
 
-3\. \[Key Features](#key-features)
+3. [Key Features](#key-features)
 
-4\. \[Complete Keymap Reference](#complete-keymap-reference)
+4. [Complete Keymap Reference](#complete-keymap-reference)
 
-5\. \[Plugin Categories](#plugin-categories)
+5. [Plugin Categories](#plugin-categories)
 
-6\. \[Language Support](#language-support)
+6. [Language Support](#language-support)
 
-7\. \[Quick Start Guide](#quick-start-guide)
+7. [Quick Start Guide](#quick-start-guide)
 
 
 
@@ -24,7 +24,7 @@
 
 
 
-\## Overview
+## Overview
 
 
 
@@ -32,25 +32,25 @@ Modern Neovim setup for Windows focused on LaTeX writing, Python development, an
 
 
 
-\- \*\*Plugin Manager\*\*: Lazy.nvim with lazy loading
+- **Plugin Manager**: Lazy.nvim with lazy loading
 
-\- \*\*Theme\*\*: OneDark (warmer variant)
+- **Theme**: OneDark (warmer variant)
 
-\- \*\*Leader Key\*\*: `;` (semicolon)
+- **Leader Key**: `;` (semicolon)
 
-\- \*\*Primary Use Cases\*\*: LaTeX documents, Python code, academic writing
+- **Primary Use Cases**: LaTeX documents, Python code, academic writing
 
 
 
-\*\*Key Integrations:\*\*
+**Key Integrations:**
 
-\- SumatraPDF for LaTeX preview
+- SumatraPDF for LaTeX preview
 
-\- GitHub Copilot for AI assistance
+- GitHub Copilot for AI assistance
 
-\- FZF for file searching
+- FZF for file searching
 
-\- LSP for intelligent editing
+- LSP for intelligent editing
 
 
 
@@ -58,7 +58,7 @@ Modern Neovim setup for Windows focused on LaTeX writing, Python development, an
 
 
 
-\## General Settings
+## General Settings
 
 
 
@@ -86,13 +86,13 @@ vim.opt.spelllang = 'it'
 
 
 
-\*\*Cursor Styles:\*\*
+**Cursor Styles:**
 
-\- Normal/Visual: Thin vertical bar
+- Normal/Visual: Thin vertical bar
 
-\- Insert: Thick vertical bar  
+- Insert: Thick vertical bar  
 
-\- Replace: Horizontal bar
+- Replace: Horizontal bar
 
 
 
@@ -100,49 +100,49 @@ vim.opt.spelllang = 'it'
 
 
 
-\## Key Features
+## Key Features
 
 
 
-\### Dashboard (Alpha.nvim)
+### Dashboard (Alpha.nvim)
 
 Custom ASCII art with quick actions:
 
-\- `f` - Find files in University folder
+- `f` - Find files in University folder
 
-\- `r` - Recent files
+- `r` - Recent files
 
-\- `e` - New file
+- `e` - New file
 
-\- `c` - Open config
+- `c` - Open config
 
-\- `u` - Update plugins
+- `u` - Update plugins
 
-\- `q` - Quit
+- `q` - Quit
 
 
 
-\### Smart Tab Behavior
+### Smart Tab Behavior
 
 Tab key intelligently handles:
 
-1\. UltiSnips expansion/navigation
+1. UltiSnips expansion/navigation
 
-2\. GitHub Copilot suggestions
+2. GitHub Copilot suggestions
 
-3\. Completion menu navigation
+3. Completion menu navigation
 
-4\. Regular tab functionality
+4. Regular tab functionality
 
 
 
-\### Auto-save for LaTeX
+### Auto-save for LaTeX
 
 LaTeX files auto-save every 3 seconds and compile automatically.
 
 
 
-\### Code Folding
+### Code Folding
 
 Uses Treesitter and indentation for intelligent folding.
 
@@ -152,11 +152,11 @@ Uses Treesitter and indentation for intelligent folding.
 
 
 
-\## Complete Keymap Reference
+## Complete Keymap Reference
 
 
 
-\### Dashboard Actions
+### Dashboard Actions
 
 | Key | Action | Description |
 
@@ -176,7 +176,7 @@ Uses Treesitter and indentation for intelligent folding.
 
 
 
-\### Navigation \& Windows
+### Navigation & Windows
 
 | Key | Mode | Action | Description |
 
@@ -192,7 +192,7 @@ Uses Treesitter and indentation for intelligent folding.
 
 
 
-\### Clipboard Operations
+### Clipboard Operations
 
 | Key | Mode | Action | Description |
 
@@ -206,7 +206,7 @@ Uses Treesitter and indentation for intelligent folding.
 
 
 
-\### Text Editing (Visual Mode)
+### Text Editing (Visual Mode)
 
 | Key | Mode | Action | Description |
 
@@ -224,15 +224,15 @@ Uses Treesitter and indentation for intelligent folding.
 
 
 
-\### LaTeX Specific
+### LaTeX Specific
 
 | Key | Mode | Action | Description |
 
 |-----|------|--------|-------------|
 
-| `<M-b>` | Visual | Bold | `\\textbf{}` |
+| `<M-b>` | Visual | Bold | `textbf{}` |
 
-| `<M-i>` | Visual | Italic | `\\textit{}` |
+| `<M-i>` | Visual | Italic | `textit{}` |
 
 | `<C-o>` | Normal | Compile | VimTeX compile |
 
@@ -240,7 +240,7 @@ Uses Treesitter and indentation for intelligent folding.
 
 
 
-\### Code Execution
+### Code Execution
 
 | Key | Mode | Action | Description |
 
@@ -252,7 +252,7 @@ Uses Treesitter and indentation for intelligent folding.
 
 
 
-\### Code Folding
+### Code Folding
 
 | Key | Mode | Action | Description |
 
@@ -270,7 +270,7 @@ Uses Treesitter and indentation for intelligent folding.
 
 
 
-\### Completion \& Snippets
+### Completion & Snippets
 
 | Key | Mode | Action | Description |
 
@@ -288,51 +288,51 @@ Uses Treesitter and indentation for intelligent folding.
 
 
 
-\## Plugin Categories
+## Plugin Categories
 
 
 
-\### UI \& Appearance
+### UI & Appearance
 
-\- \*\*alpha-nvim\*\*: Custom dashboard with ASCII art
+- **alpha-nvim**: Custom dashboard with ASCII art
 
-\- \*\*onedark.nvim\*\*: Theme (warmer variant)
+- **onedark.nvim**: Theme (warmer variant)
 
-\- \*\*lualine.nvim\*\*: Status line with git/LSP info
+- **lualine.nvim**: Status line with git/LSP info
 
-\- \*\*indent-blankline.nvim\*\*: Rainbow indent guides
-
-
-
-\### File Management
-
-\- \*\*nvim-tree.lua\*\*: File explorer (Ctrl-N)
-
-\- \*\*fzf + fzf.vim\*\*: Fuzzy finder
-
-\- \*\*outline.nvim\*\*: Document structure (Ctrl-K)
+- **indent-blankline.nvim**: Rainbow indent guides
 
 
 
-\### Code Editing
+### File Management
 
-\- \*\*nvim-treesitter\*\*: Syntax highlighting
+- **nvim-tree.lua**: File explorer (Ctrl-N)
 
-\- \*\*nvim-autopairs\*\*: Auto-close brackets/quotes
+- **fzf + fzf.vim**: Fuzzy finder
 
-\- \*\*nvim-ufo\*\*: Intelligent code folding
-
-\- \*\*copilot.vim\*\*: AI code suggestions
+- **outline.nvim**: Document structure (Ctrl-K)
 
 
 
-\### Completion System
+### Code Editing
 
-\- \*\*nvim-cmp\*\*: Completion engine
+- **nvim-treesitter**: Syntax highlighting
 
-\- \*\*UltiSnips\*\*: Snippet system
+- **nvim-autopairs**: Auto-close brackets/quotes
 
-\- Sources: LSP, buffer, path, cmdline
+- **nvim-ufo**: Intelligent code folding
+
+- **copilot.vim**: AI code suggestions
+
+
+
+### Completion System
+
+- **nvim-cmp**: Completion engine
+
+- **UltiSnips**: Snippet system
+
+- Sources: LSP, buffer, path, cmdline
 
 
 
@@ -340,63 +340,63 @@ Uses Treesitter and indentation for intelligent folding.
 
 
 
-\## Language Support
+## Language Support
 
 
 
-\### LaTeX (VimTeX + Texlab LSP)
+### LaTeX (VimTeX + Texlab LSP)
 
-\*\*Setup Requirements:\*\*
+**Setup Requirements:**
 
-\- LaTeX distribution (TeX Live/MiKTeX)
+- LaTeX distribution (TeX Live/MiKTeX)
 
-\- SumatraPDF viewer
+- SumatraPDF viewer
 
-\- Texlab LSP: `cargo install texlab`
-
-
-
-\*\*Features:\*\*
-
-\- Auto-save and compile
-
-\- PDF preview with SyncTeX
-
-\- Math delimiter highlighting
-
-\- Forward/inverse search
+- Texlab LSP: `cargo install texlab`
 
 
 
-\### Python (Pyright LSP + Black)
+**Features:**
 
-\*\*Setup Requirements:\*\*
+- Auto-save and compile
 
-\- Python 3.x
+- PDF preview with SyncTeX
 
-\- Pyright: `npm install -g pyright`
+- Math delimiter highlighting
 
-\- Black: `pip install black`
-
-
-
-\*\*Features:\*\*
-
-\- Type checking and completion
-
-\- Auto-formatting on save
-
-\- F5 execution in split
-
-\- DAP debugging support
+- Forward/inverse search
 
 
 
-\### Additional Languages
+### Python (Pyright LSP + Black)
 
-\- \*\*JavaScript/HTML/CSS\*\*: Basic support
+**Setup Requirements:**
 
-\- \*\*Lua\*\*: For Neovim config editing
+- Python 3.x
+
+- Pyright: `npm install -g pyright`
+
+- Black: `pip install black`
+
+
+
+**Features:**
+
+- Type checking and completion
+
+- Auto-formatting on save
+
+- F5 execution in split
+
+- DAP debugging support
+
+
+
+### Additional Languages
+
+- **JavaScript/HTML/CSS**: Basic support
+
+- **Lua**: For Neovim config editing
 
 
 
@@ -404,81 +404,81 @@ Uses Treesitter and indentation for intelligent folding.
 
 
 
-\## Quick Start Guide
+## Quick Start Guide
 
 
 
-\### First Launch
+### First Launch
 
-1\. Open Neovim → Dashboard appears
+1. Open Neovim → Dashboard appears
 
-2\. Press `f` to find files or `e` for new file
+2. Press `f` to find files or `e` for new file
 
-3\. Use `Ctrl-N` for file tree, `Ctrl-K` for outline
-
-
-
-\### LaTeX Workflow
-
-1\. Create `.tex` file
-
-2\. Write content (auto-saves every 3s)
-
-3\. View PDF in SumatraPDF
-
-4\. Use `Alt-B`/`Alt-I` for formatting
-
-5\. `$` to wrap math expressions
+3. Use `Ctrl-N` for file tree, `Ctrl-K` for outline
 
 
 
-\### Python Development
+### LaTeX Workflow
 
-1\. Create `.py` file
+1. Create `.tex` file
 
-2\. Write code with LSP assistance
+2. Write content (auto-saves every 3s)
 
-3\. Black formats automatically on save
+3. View PDF in SumatraPDF
 
-4\. Press `F5` to run in split terminal
+4. Use `Alt-B`/`Alt-I` for formatting
 
-
-
-\### General Editing
-
-1\. Smart Tab handles snippets/Copilot/completion
-
-2\. Visual mode: select text, then `Tab`/quotes/formatting
-
-3\. `Ctrl-C`/`Ctrl-V` for system clipboard
-
-4\. Window navigation with `Tab`/`Shift-Tab`
+5. `$` to wrap math expressions
 
 
 
-\### Plugin Management
+### Python Development
 
-\- `:Lazy` - Manage plugins
+1. Create `.py` file
 
-\- `:Lazy sync` - Update all plugins
+2. Write code with LSP assistance
 
-\- `:checkhealth` - Diagnostic information
+3. Black formats automatically on save
+
+4. Press `F5` to run in split terminal
 
 
 
-\### Customization
+### General Editing
+
+1. Smart Tab handles snippets/Copilot/completion
+
+2. Visual mode: select text, then `Tab`/quotes/formatting
+
+3. `Ctrl-C`/`Ctrl-V` for system clipboard
+
+4. Window navigation with `Tab`/`Shift-Tab`
+
+
+
+### Plugin Management
+
+- `:Lazy` - Manage plugins
+
+- `:Lazy sync` - Update all plugins
+
+- `:checkhealth` - Diagnostic information
+
+
+
+### Customization
 
 Edit configuration at: `C:/Users/Lorenzo/AppData/Local/nvim/init.lua`
 
 
 
-\*\*Common Modifications:\*\*
+**Common Modifications:**
 
-\- Change leader key: `vim.g.mapleader`
+- Change leader key: `vim.g.mapleader`
 
-\- Add keymaps in key mappings section
+- Add keymaps in key mappings section
 
-\- Modify colors in highlights section
+- Modify colors in highlights section
 
-\- Add plugins in Lazy.nvim setup
+- Add plugins in Lazy.nvim setup
 
