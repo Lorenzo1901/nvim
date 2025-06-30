@@ -151,141 +151,95 @@ Uses Treesitter and indentation for intelligent folding.
 ---
 
 
-
 ## Complete Keymap Reference
-
-
 
 ### Dashboard Actions
 
-| Key | Action | Description |
-
-|-----|--------|-------------|
-
-| `f` | Find Files | FZF in University folder |
-
-| `r` | Recent Files | File history |
-
-| `e` | New File | Create new buffer |
-
-| `c` | Config | Open init.lua |
-
-| `u` | Update | Sync plugins |
-
-| `q` | Quit | Exit Neovim |
-
-
-
-### Navigation & Windows
-
-| Key | Mode | Action | Description |
-
-|-----|------|--------|-------------|
-
-| `<Tab>` | Normal | Window Navigation | Focus next window |
-
-| `<S-Tab>` | Normal | Window Navigation | Focus previous window |
-
-| `<C-n>` | Normal | File Tree | Toggle nvim-tree |
-
-| `<C-k>` | Normal | Outline | Toggle document outline |
-
-
-
-### Clipboard Operations
-
-| Key | Mode | Action | Description |
-
-|-----|------|--------|-------------|
-
-| `<C-v>` | Insert | Paste | From system clipboard |
-
-| `<C-c>` | Visual | Copy | To system clipboard |
-
-| `<C-x>` | Visual | Cut | To system clipboard |
-
-
-
-### Text Editing (Visual Mode)
-
-| Key | Mode | Action | Description |
-
-|-----|------|--------|-------------|
-
-| `<Tab>` | Visual | Indent | Keep selection |
-
-| `<S-Tab>` | Visual | Unindent | Keep selection |
-
-| `'` | Visual | Wrap Quotes | Single quotes |
-
-| `"` | Visual | Wrap Quotes | Double quotes |
-
-| `$` | Visual | Math Mode | LaTeX dollar signs |
-
-
-
-### LaTeX Specific
-
-| Key | Mode | Action | Description |
-
-|-----|------|--------|-------------|
-
-| `<M-b>` | Visual | Bold | `textbf{}` |
-
-| `<M-i>` | Visual | Italic | `textit{}` |
-
-| `<C-o>` | Normal | Compile | VimTeX compile |
-
-| `<C-l>` | Insert | Spell Fix | Auto-correct word |
-
-
-
-### Code Execution
-
-| Key | Mode | Action | Description |
-
-|-----|------|--------|-------------|
-
-| `<F5>` | Normal | Run Python | Execute in split |
-
-| `<S-F5>` | Normal | Run Manim | Render animation |
-
-
-
-### Code Folding
-
-| Key | Mode | Action | Description |
-
-|-----|------|--------|-------------|
-
-| `zR` | Normal | Open All | All folds |
-
-| `zM` | Normal | Close All | All folds |
-
-| `za` | Normal | Toggle | Fold at cursor |
-
-| `zo` | Normal | Open | Fold at cursor |
-
-| `zc` | Normal | Close | Fold at cursor |
-
-
-
-### Completion & Snippets
-
-| Key | Mode | Action | Description |
-
-|-----|------|--------|-------------|
-
-| `<Tab>` | Insert | Smart Tab | Snippet/Copilot/Complete |
-
-| `<S-Tab>` | Insert | Previous | Snippet/Completion |
-
-| `<CR>` | Insert | Confirm | Completion (no auto-select) |
-
-
+| Key   | Action       | Description              |
+|-------|--------------|--------------------------|
+| `f`   | Find Files   | FZF in University folder |
+| `r`   | Recent Files | File history             |
+| `e`   | New File     | Create new buffer        |
+| `c`   | Config       | Open init.lua            |
+| `u`   | Update       | Sync plugins             |
+| `q`   | Quit         | Exit Neovim              |
 
 ---
 
+### Navigation & Windows
+
+| Key      | Mode   | Action           | Description              |
+|----------|--------|------------------|--------------------------|
+| `<Tab>`  | Normal | Window Navigation| Focus next window        |
+| `<S-Tab>`| Normal | Window Navigation| Focus previous window    |
+| `<C-n>`  | Normal | File Tree        | Toggle nvim-tree         |
+| `<C-k>`  | Normal | Outline          | Toggle document outline  |
+
+---
+
+### Clipboard Operations
+
+| Key      | Mode   | Action | Description          |
+|----------|--------|--------|----------------------|
+| `<C-v>`  | Insert | Paste  | From system clipboard|
+| `<C-c>`  | Visual | Copy   | To system clipboard  |
+| `<C-x>`  | Visual | Cut    | To system clipboard  |
+
+---
+
+### Text Editing (Visual Mode)
+
+| Key       | Mode   | Action       | Description          |
+|-----------|--------|--------------|----------------------|
+| `<Tab>`   | Visual | Indent       | Keep selection       |
+| `<S-Tab>` | Visual | Unindent     | Keep selection       |
+| `'`       | Visual | Wrap Quotes  | Single quotes        |
+| `"`       | Visual | Wrap Quotes  | Double quotes        |
+| `$`       | Visual | Math Mode    | LaTeX dollar signs   |
+
+---
+
+### LaTeX Specific
+
+| Key      | Mode   | Action  | Description        |
+|----------|--------|---------|--------------------|
+| `<M-b>`  | Visual | Bold    | `\textbf{}`        |
+| `<M-i>`  | Visual | Italic  | `\textit{}`        |
+| `<C-o>`  | Normal | Compile | VimTeX compile     |
+| `<C-l>`  | Insert | Spell Fix | Auto-correct word |
+
+---
+
+### Code Execution
+
+| Key       | Mode   | Action      | Description       |
+|-----------|--------|-------------|-------------------|
+| `<F5>`    | Normal | Run Python  | Execute in split  |
+| `<S-F5>`  | Normal | Run Manim   | Render animation  |
+
+---
+
+### Code Folding
+
+| Key  | Mode   | Action    | Description       |
+|------|--------|-----------|-------------------|
+| `zR` | Normal | Open All  | All folds         |
+| `zM` | Normal | Close All | All folds         |
+| `za` | Normal | Toggle    | Fold at cursor    |
+| `zo` | Normal | Open      | Fold at cursor    |
+| `zc` | Normal | Close     | Fold at cursor    |
+
+---
+
+### Completion & Snippets
+
+| Key       | Mode   | Action     | Description                    |
+|-----------|--------|------------|-------------------------------|
+| `<Tab>`   | Insert | Smart Tab  | Snippet / Copilot / Complete  |
+| `<S-Tab>` | Insert | Previous   | Snippet / Completion           |
+| `<CR>`    | Insert | Confirm    | Completion (no auto-select)   |
+
+---
 
 
 ## Plugin Categories
