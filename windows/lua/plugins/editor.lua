@@ -91,7 +91,17 @@ return {
   },
 
   -- GitHub Copilot
-  { 
-    'github/copilot.vim',
-  },
+{
+  'github/copilot.vim',
+  config = function()
+    -- Disable default Tab mapping for Copilot
+    vim.g.copilot_no_tab_map = true
+    
+    -- Map Ctrl-Tab to accept Copilot suggestion
+    vim.keymap.set('i', '<M-Space>', 'copilot#Accept("\\<CR>")', {
+      expr = true,
+      replace_keycodes = false
+    })
+  end,
+}
 }
