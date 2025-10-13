@@ -91,7 +91,6 @@ snippet =< "implied by" Ai
 \impliedby
 endsnippet
 
-context "math()"
 snippet iff "iff" Ai
 \iff
 endsnippet
@@ -213,11 +212,11 @@ snippet || "left| right|" i
 \left| ${1:${VISUAL}} \right| $0
 endsnippet
 
-snippet lr{ "left\{ right\}" i
+snippet {} "left\{ right\}" i
 \left\{ ${1:${VISUAL}} \right\} $0
 endsnippet
 
-snippet lr[ "left[ right]" i
+snippet [] "left[ right]" i
 \left[ ${1:${VISUAL}} \right] $0
 endsnippet
 
@@ -289,16 +288,18 @@ snippet >= "geq" iA
 \ge 
 endsnippet
 
-context "math()"
-snippet EE "expectation" iA
+snippet Ee "expectation" iA
 \mathbb{E}
 endsnippet
 
-snippet AA "forall" iA
-\forall 
+snippet EE "exists" iA
+\exists \
 endsnippet
 
-context "math()"
+snippet AA "forall" iA
+\forall \
+endsnippet
+
 snippet PP "probability" iA
 \mathbb{P}
 endsnippet
@@ -340,8 +341,7 @@ snippet R0+ "R0+" iA
 endsnippet
 
 snippet plot "Plot" w
-\begin{figure}[$1]
-	\centering
+\begin{center}
 	\begin{tikzpicture}
 		\begin{axis}[
 			xmin= ${2:-10}, xmax= ${3:10},
@@ -351,9 +351,7 @@ snippet plot "Plot" w
 			\addplot[domain=$2:$3, samples=${6:100}]{$7};
 		\end{axis}
 	\end{tikzpicture}
-	\caption{$8}
-	\label{${9:$8}}
-\end{figure}
+\end{center}
 endsnippet
 
 snippet node "Tikz node" w
@@ -381,13 +379,11 @@ snippet ** "cdot" iA
 \cdot 
 endsnippet
 
-context "math()"
 snippet norm "norm" iA
 \|$1\|$0
 endsnippet
 
 priority 100
-context "math()"
 snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
@@ -397,7 +393,6 @@ snippet intgr "integral" wA
 endsnippet
 
 priority 200
-context "math()"
 snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
@@ -422,7 +417,6 @@ snippet cmpl "complement" iA
 ^{c}
 endsnippet
 
-context "math()"
 snippet \\\ "setminus" iA
 \setminus
 endsnippet
@@ -439,7 +433,6 @@ snippet ~~ "~" iA
 \sim 
 endsnippet
 
-context "math()"
 snippet set "set" wA
 \{$1\} $0
 endsnippet
@@ -505,12 +498,10 @@ snippet '(?<!i)sts' "text subscript" irA
 _\text{$1} $0
 endsnippet
 
-context "math()"
 snippet tt "text" iA
 \text{$1}$0
 endsnippet
 
-context "math()"
 snippet case "cases" wA
 \begin{cases}
 	$1
@@ -533,25 +524,21 @@ snippet cvec "column vector" iA
 endsnippet
 
 priority 10
-context "math()"
 snippet "bar" "bar" riA
-\overline{$1}$0
+\bar{$1}$0
 endsnippet
 
 priority 100
-context "math()"
 snippet "([a-zA-Z])bar" "bar" riA
-\overline{`!p snip.rv=match.group(1)`}
+\bar{`!p snip.rv=match.group(1)`}
 endsnippet
 
 priority 10
-context "math()"
 snippet "hat" "hat" riA
 \hat{$1}$0
 endsnippet
 
 priority 100
-context "math()"
 snippet "([a-zA-Z])hat" "hat" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
