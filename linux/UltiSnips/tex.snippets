@@ -213,7 +213,7 @@ snippet || "left| right|" i
 endsnippet
 
 snippet {} "left\{ right\}" i
-\left\{ ${1:${VISUAL}} \right\} $0
+\left\\{ ${1:${VISUAL}} \right\\} $0
 endsnippet
 
 snippet [] "left[ right]" i
@@ -384,6 +384,7 @@ snippet norm "norm" iA
 endsnippet
 
 priority 100
+context "math()"
 snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
@@ -393,6 +394,7 @@ snippet intgr "integral" wA
 endsnippet
 
 priority 200
+context "math()"
 snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
@@ -498,7 +500,7 @@ snippet '(?<!i)sts' "text subscript" irA
 _\text{$1} $0
 endsnippet
 
-snippet tt "text" iA
+snippet txt "text" iA
 \text{$1}$0
 endsnippet
 
