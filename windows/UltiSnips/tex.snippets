@@ -15,9 +15,9 @@ snippet template "Basic template" b
 \documentclass{article}
 \input{preamble}
 
-\title{Probabilità e statistica}
+\title{$1}
 \author{Lorenzo Zambardi}
-\date{A.A. 2024-2025}
+\date{A.A. $2}
 
 \begin{document}
 
@@ -349,6 +349,35 @@ snippet plot "Plot" w
 			axis lines = middle,
 		]
 			\addplot[domain=$2:$3, samples=${6:100}]{$7};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+endsnippet
+
+snippet surf "Surface" w
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+			view={$1}{$2},
+			colormap/viridis, enlarge x limits=true, enlarge y limits=true, enlarge z limits=true,
+			domain={$3:$4},
+			y domain={$5:$6},
+			samples=40, samples y=40,
+			xlabel={$x$},
+			%ylabel style={rotate=-90},
+			ylabel={$y$},
+			zlabel style={rotate=-90},
+			zlabel={$z$},
+			title={$7},
+			tick label style={font=\tiny, inner sep=0.5pt},
+			xtick={$8},
+			ytick={$9},
+			ztick={$10},
+			zmin={$11},
+			zmax={$12},
+			point meta = z, restrict z to domain*={$11:$12},
+		]
+			\addplot3[surf, opacity=0.8, shader=interp] {$13};
 		\end{axis}
 	\end{tikzpicture}
 \end{center}
