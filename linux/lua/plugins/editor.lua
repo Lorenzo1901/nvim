@@ -103,6 +103,23 @@ return {
       replace_keycodes = false
     })
   end,
+},
+
+	-- Markdown preview
+{
+  "MeanderingProgrammer/render-markdown.nvim",
+  ft = { "markdown" },
+  config = function()
+    require("render-markdown").setup({
+      enable = true,
+      debounce = 50,
+      heading = { enabled = true },
+      code = { enabled = true },
+      latex = { enabled = true },
+      bullet = { enabled = true },
+      quote = { enabled = true },
+    })
+  end,
 }
 
 }
