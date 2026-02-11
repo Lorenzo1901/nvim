@@ -13,8 +13,8 @@ return {
         ensure_installed = { "lua", "python", "javascript", "html", "css", "latex" },
         auto_install = false,
         highlight = { 
-          enable = true, 
-          additional_vim_regex_highlighting = false,
+          enable = true,
+	  additional_vim_regex_highlighting = { "latex" },
         },
         indent = { enable = true }
       }

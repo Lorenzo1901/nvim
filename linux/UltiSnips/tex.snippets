@@ -1,11 +1,6 @@
 global !p
-import vim
-
 def math():
-    try:
-        return vim.eval("luaeval('require(\"nvim-treesitter.ts_utils\").get_node_at_cursor():type()')") in ["inline_formula", "math_environment", "displayed_equation", "markup.math"]
-    except:
-        return False
+    return vim.eval('vimtex#syntax#in_mathzone()') != '0'
 endglobal
 
 snippet template "Basic template" b
