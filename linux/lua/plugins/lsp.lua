@@ -3,19 +3,15 @@
 -- ============================================================================
 
 return {
-  -- LSP Configuration
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      local lspconfig = require("lspconfig")
-
       -- LaTeX LSP
-      lspconfig.texlab.setup {
+      vim.lsp.config.texlab = {
         cmd = { "texlab" },
         filetypes = { "tex" },
-        single_file_support = false,
-        root_dir = lspconfig.util.root_pattern("*.tex", ".git"),
+        root_markers = { "*.tex", ".git" },
         settings = {
           texlab = {
             build = {
@@ -23,19 +19,20 @@ return {
               args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
             },
             forward_search = {
-              executable = "SumatraPDF",
+              executable = "zathura",
               args = { "--synctex-forward", "%l:1:%f", "%p" },
             },
           },
         },
       }
+      vim.lsp.enable("texlab")
 
       -- Python LSP
-      lspconfig.pyright.setup {
+      vim.lsp.config.pyright = {
         filetypes = { "python" },
-        single_file_support = true,
-        root_dir = lspconfig.util.root_pattern(".git", "setup.py", "pyproject.toml", "requirements.txt"),
+        root_markers = { ".git", "setup.py", "pyproject.toml", "requirements.txt" },
       }
+      vim.lsp.enable("pyright")
     end,
   },
 }
