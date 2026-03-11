@@ -1,6 +1,12 @@
 global !p
 def math():
-    return vim.eval('vimtex#syntax#in_mathzone()') != '0'
+    if vim.eval('&filetype') == 'tex':
+        return vim.eval('vimtex#syntax#in_mathzone()') != '0'
+    try:
+        node = vim.eval("luaeval('require\"nvim-treesitter.ts_utils\".get_node_at_cursor():type()')")
+        return node in ["inline_formula", "math_environment", "displayed_equation", "latex_block"]
+    except:
+        return False
 endglobal
 
 snippet template "Basic template" b
@@ -100,9 +106,19 @@ else:
 endsnippet
 
 snippet dm "Math" wA
-\[
+`!p
+if snip.ft == "markdown":
+    snip.rv = "$$"
+else:
+    snip.rv = "\\["
+`
 ${1:${VISUAL}}
-\] $0
+`!p
+if snip.ft == "markdown":
+    snip.rv = "$$"
+else:
+    snip.rv = "\\]"
+` $0
 endsnippet
 
 snippet ali "Align" bA

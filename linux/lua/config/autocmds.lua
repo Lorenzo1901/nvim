@@ -36,7 +36,7 @@ end)
 
 -- LaTeX-specific autocmd
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  pattern = "*.tex",
+  pattern = {"*.tex", "*.md"},
   callback = function()
     vim.fn.matchadd("TexMathDelimiter", [[\\\[\|\\\]\|\$]], 10)
   end,

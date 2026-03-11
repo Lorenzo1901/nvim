@@ -27,10 +27,10 @@ return {
             }
 
             dashboard.section.buttons.val = {
-                button("f", "  Find file", ":lua require('lazy').load({plugins={'fzf.vim'}}) vim.cmd('FZF /home/lor/Documents/uni/')<CR>"),
+                button("f", "  Find file", ":lua require('lazy').load({plugins={'fzf.vim'}}) vim.cmd('FZF ~/Documents/')<CR>"),
 		button("r", "󰋚  Recent files", ":lua require('lazy').load({plugins={'fzf.vim'}}) vim.cmd('History')<CR>"),
                 button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-                button("c", "  Configuration", ":lua require('lazy').load({plugins={'fzf.vim'}}) vim.cmd('FZF /home/lor/.config/nvim/')<CR>"),
+                button("c", "  Configuration", ":lua require('lazy').load({plugins={'fzf.vim'}}) vim.cmd('FZF ~/.config/nvim/')<CR>"),
                 button("u", "  Update plugins", ":Lazy sync<CR>"),
                 button("q", "  Quit", ":qa<CR>")
             }

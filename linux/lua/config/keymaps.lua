@@ -115,15 +115,3 @@ vim.keymap.set('v', '<M-i>', function() wrap_with_pairs('\\textit{', '}') end)
 
 -- LaTeX compilation
 vim.api.nvim_set_keymap('n', '<C-o>', ':w<CR>:VimtexCompile<CR>', { noremap = true, silent = true })
-
--- Manim execution
-vim.keymap.set("n", "<S-F5>", function()
-  vim.cmd("write")
-  local dir = vim.fn.expand("%:p:h")
-  local filename = vim.fn.expand("%:t")
-  local class = vim.fn.expand("%:t:r")
-  local cmd = "cd " .. dir .. " && manim -pql " .. filename .. " " .. class
-  vim.o.splitright = true
-  vim.cmd("vsplit")
-  vim.cmd("terminal " .. cmd)
-end, { desc = "Run Manim scene", noremap = true, silent = true })
