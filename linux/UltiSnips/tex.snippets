@@ -467,6 +467,16 @@ snippet norm "norm" iA
 \|$1\|$0
 endsnippet
 
+context "math()"
+snippet eps "epsilon" iA
+\varepsilon
+endsnippet
+
+context "math()"
+snippet bf "textbf" iwA
+\textbf{$1}$0
+endsnippet
+
 priority 100
 context "math()"
 snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rwA
@@ -474,13 +484,13 @@ snippet '(?<!\\)(sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rwA
 endsnippet
 
 context "math()"
-snippet intgr "integral" wA
+snippet int "integral" wA
 \int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} $0
 endsnippet
 
 priority 200
 context "math()"
-snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
+snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|to|delta|kappa|lambda|mu|nu|rho|sigma|tau|omega)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
