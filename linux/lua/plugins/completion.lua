@@ -1,21 +1,49 @@
 -- ============================================================================
--- COMPLETION AND SNIPPETS
+-- COMPLETION AND SNIPPETS (LuaSnip + nvim-cmp)
 -- ============================================================================
 
 return {
   {
+    'L3MON4D3/LuaSnip',
+    version = 'v2.*',
+    build = 'make install_jsregexp',
+    config = function()
+      local ls = require('luasnip')
+
+      ls.config.setup({
+        enable_autosnippets = true,
+      })
+
+      -- Extend markdown to include LaTeX snippets
+      ls.filetype_extend('markdown', { 'tex' })
+
+      -- Load Lua format snippets from ~/.config/nvim/lua/snippets/
+      require('luasnip.loaders.from_lua').lazy_load({
+        paths = vim.fn.stdpath('config') .. '/lua/snippets',
+      })
+    end,
+  },
+  {
     'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    event = { 'InsertEnter', 'CmdlineEnter' },
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
+      'L3MON4D3/LuaSnip',
     },
     config = function()
       local cmp = require('cmp')
+      local ls = require('luasnip')
 
       cmp.setup({
+        snippet = {
+          expand = function(args)
+            ls.lsp_expand(args.body)
+          end,
+        },
+
         mapping = {
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
@@ -42,6 +70,22 @@ return {
               fallback()
             end
           end, { 'i', 's' }),
+
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            if ls.expand_or_jumpable() then
+              ls.expand_or_jump()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if ls.jumpable(-1) then
+              ls.jump(-1)
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
         },
 
         sources = {
@@ -57,28 +101,19 @@ return {
       })
 
       cmp.setup.cmdline('/', {
+        mapping = cmp.mapping.preset.cmdline(),
         sources = { { name = 'buffer' } }
       })
 
       cmp.setup.cmdline(':', {
-        sources = { { name = 'path' }, { name = 'cmdline' } }
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          { name = 'cmdline' }
+        })
       })
     end,
   },
-	{
-  'SirVer/ultisnips',
-  config = function()
-    vim.g.UltiSnipsExpandTrigger = '<Tab>'
-    vim.g.UltiSnipsJumpForwardTrigger = '<Tab>'
-    vim.g.UltiSnipsJumpBackwardTrigger = '<S-Tab>'
-
-vim.api.nvim_create_autocmd("FileType", {
-      pattern = "markdown",
-      callback = function()
-        vim.cmd("UltiSnipsAddFiletypes markdown.tex")
-      end,
-    })
-  end,
-},
 }
 
