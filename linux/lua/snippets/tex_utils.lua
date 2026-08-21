@@ -6,14 +6,29 @@ local M = {}
 
 function M.in_mathzone()
   local ft = vim.bo.filetype
-  if ft == "tex" then
-    if vim.fn["vimtex#syntax#in_mathzone"]() == 0 then
-      return false
-    end
-  else
-    local ok, inspect = pcall(vim.api.nvim_exec2, "Inspect", { output = true })
-    if ok and not inspect.output:lower():find("math") then
-      return false
+  if ft == "tex" and vim.fn.exists("*vimtex#syntax#in_mathzone") == 1 then
+    return vim.fn["vimtex#syntax#in_mathzone"]() == 1
+  end
+
+  -- Fallback for markdown or when VimTeX is not active:
+  local has_ts, _ = pcall(require, "vim.treesitter")
+  if has_ts then
+    local ok, node = pcall(vim.treesitter.get_node)
+    if ok and node then
+      local curr = node
+      while curr do
+        local ntype = curr:type()
+        if ntype:find("math") or ntype == "inline_formula" or ntype == "displayed_equation" or ntype == "math_environment" then
+          local cursor = vim.api.nvim_win_get_cursor(0)
+          local line = vim.api.nvim_get_current_line()
+          local line_prefix = line:sub(1, cursor[2])
+          if line_prefix:match("\\text%s*{[^}]*$") or line_prefix:match("\\textbf%s*{[^}]*$") or line_prefix:match("\\textit%s*{[^}]*$") then
+            return false
+          end
+          return true
+        end
+        curr = curr:parent()
+      end
     end
   end
 

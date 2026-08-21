@@ -181,7 +181,7 @@ return {
   ),
 
   -- Regex symbol fraction: 7/ -> \frac{7}{} or \alpha/ -> \frac{\alpha}{} or x^2/ -> \frac{x^2}{}
-  s({ trig = [[((%d+)|(%d*)([\\]?)([A-Za-z]+)(([%^_])({%d+}|%d))*)/]], regTrig = true, snippetType = "autosnippet", wordTrig = false, condition = in_mathzone },
+  s({ trig = [[(((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*))/]], regTrig = true, trigEngine = "ecma", snippetType = "autosnippet", wordTrig = false, condition = in_mathzone },
     fmta([[\frac{<>}{<>}<>]], {
       f(function(_, snip) return snip.captures[1] end),
       i(1),
@@ -190,7 +190,7 @@ return {
   ),
 
   -- Regex paren fraction: (1 + 2 + 3)/ -> \frac{1 + 2 + 3}{}
-  s({ trig = ".*%)%/", regTrig = true, snippetType = "autosnippet", wordTrig = false, priority = 1000, condition = in_mathzone },
+  s({ trig = [[.*\)/]], regTrig = true, trigEngine = "ecma", snippetType = "autosnippet", wordTrig = false, priority = 1000, condition = in_mathzone },
     fmta([[<>{<>}<>]], {
       f(function(_, snip)
         local stripped = snip.trigger:sub(1, -2)
@@ -368,12 +368,12 @@ return {
   ),
 
   -- Auto subscript: x1 -> x_1
-  s({ trig = "([A-Za-z])(%d)", regTrig = true, snippetType = "autosnippet", wordTrig = false, condition = in_mathzone },
+  s({ trig = [[([A-Za-z])(\d)]], regTrig = true, trigEngine = "ecma", snippetType = "autosnippet", wordTrig = false, condition = in_mathzone },
     f(function(_, snip) return snip.captures[1] .. "_" .. snip.captures[2] end)
   ),
 
   -- Auto subscript 2 digits: x_12 -> x_{12}
-  s({ trig = "([A-Za-z])_(%d%d)", regTrig = true, snippetType = "autosnippet", wordTrig = false, condition = in_mathzone },
+  s({ trig = [[([A-Za-z])_(\d\d)]], regTrig = true, trigEngine = "ecma", snippetType = "autosnippet", wordTrig = false, condition = in_mathzone },
     f(function(_, snip) return snip.captures[1] .. "_{" .. snip.captures[2] .. "}" end)
   ),
 
@@ -459,18 +459,18 @@ return {
   s({ trig = "bar", snippetType = "autosnippet", wordTrig = false, condition = in_mathzone, priority = 10 },
     fmta([[\bar{<>}<>]], { i(1), i(0) })
   ),
-  s({ trig = "([a-zA-Z])bar", regTrig = true, snippetType = "autosnippet", wordTrig = false, condition = in_mathzone, priority = 100 },
+  s({ trig = "([a-zA-Z])bar", regTrig = true, trigEngine = "ecma", snippetType = "autosnippet", wordTrig = false, condition = in_mathzone, priority = 100 },
     f(function(_, snip) return "\\bar{" .. snip.captures[1] .. "}" end)
   ),
   s({ trig = "hat", snippetType = "autosnippet", wordTrig = false, condition = in_mathzone, priority = 10 },
     fmta([[\hat{<>}<>]], { i(1), i(0) })
   ),
-  s({ trig = "([a-zA-Z])hat", regTrig = true, snippetType = "autosnippet", wordTrig = false, condition = in_mathzone, priority = 100 },
+  s({ trig = "([a-zA-Z])hat", regTrig = true, trigEngine = "ecma", snippetType = "autosnippet", wordTrig = false, condition = in_mathzone, priority = 100 },
     f(function(_, snip) return "\\hat{" .. snip.captures[1] .. "}" end)
   ),
 
   -- Trig / Math functions
-  s({ trig = "(%a+)", regTrig = true, snippetType = "autosnippet", wordTrig = false, priority = 100,
+  s({ trig = "([a-zA-Z]+)", regTrig = true, trigEngine = "ecma", snippetType = "autosnippet", wordTrig = false, priority = 100,
       condition = function(line_to_cursor, matched_trigger)
         if not in_mathzone() then return false end
         local words = { sin=1, cos=1, arccot=1, cot=1, csc=1, ln=1, log=1, exp=1, star=1, perp=1 }
@@ -482,7 +482,7 @@ return {
   ),
 
   -- Greek / Complex trig
-  s({ trig = "(%a+)", regTrig = true, snippetType = "autosnippet", wordTrig = false, priority = 200,
+  s({ trig = "([a-zA-Z]+)", regTrig = true, trigEngine = "ecma", snippetType = "autosnippet", wordTrig = false, priority = 200,
       condition = function(line_to_cursor, matched_trigger)
         if not in_mathzone() then return false end
         local words = {
@@ -504,7 +504,7 @@ return {
   s({ trig = "sympy", wordTrig = true },
     fmta("sympy <> sympy<>", { i(1), i(0) })
   ),
-  s({ trig = "sympy(.*)sympy", regTrig = true, priority = 10000 },
+  s({ trig = "sympy(.*)sympy", regTrig = true, trigEngine = "ecma", priority = 10000 },
     f(function(_, snip)
       local code = snip.captures[1]
       local py_script = string.format([[
@@ -524,7 +524,7 @@ print(latex(eval(expr)), end='')
   s({ trig = "math", wordTrig = true, priority = 1000 },
     fmta("math <> math<>", { i(1), i(0) })
   ),
-  s({ trig = "math(.*)math", regTrig = true, priority = 10000 },
+  s({ trig = "math(.*)math", regTrig = true, trigEngine = "ecma", priority = 10000 },
     f(function(_, snip)
       local code = "ToString[" .. snip.captures[1] .. ", TeXForm]"
       local res = vim.fn.system({ "wolframscript", "-code", code })
